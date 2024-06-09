@@ -9,6 +9,10 @@ RSpec.describe Client, type: :model do
     it { is_expected.to have_db_column(:email).of_type(:string) }
   end
 
+  describe 'associations' do
+    it { is_expected.to have_many(:store_urls) }
+  end
+
   describe 'is valid' do
     it 'with correct attributes' do
       expect(FactoryBot.create(:client)).to be_valid

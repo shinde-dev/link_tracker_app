@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_09_025258) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_09_034917) do
   create_table "clients", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -19,4 +19,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_025258) do
     t.index ["email"], name: "index_clients_on_email", unique: true
   end
 
+  create_table "store_urls", force: :cascade do |t|
+    t.string "url", null: false
+    t.string "tracking_code"
+    t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_store_urls_on_client_id"
+    t.index ["tracking_code"], name: "index_store_urls_on_tracking_code", unique: true
+  end
+
+  add_foreign_key "store_urls", "clients"
 end
