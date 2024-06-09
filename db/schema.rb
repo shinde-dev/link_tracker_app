@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_09_034917) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_09_060122) do
   create_table "clients", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -29,5 +29,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_034917) do
     t.index ["tracking_code"], name: "index_store_urls_on_tracking_code", unique: true
   end
 
+  create_table "url_trackings", force: :cascade do |t|
+    t.json "metadata"
+    t.integer "store_url_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_url_id"], name: "index_url_trackings_on_store_url_id"
+  end
+
   add_foreign_key "store_urls", "clients"
+  add_foreign_key "url_trackings", "store_urls"
 end
