@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_060122) do
   end
 
   create_table "url_trackings", force: :cascade do |t|
-    t.json "metadata"
+    t.json "metadata", default: {}
     t.integer "store_url_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

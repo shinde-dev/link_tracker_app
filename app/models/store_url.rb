@@ -10,4 +10,8 @@ class StoreUrl < ApplicationRecord
   def tracking_url
     "#{ENV.fetch('TRACKING_ROOT_URL')}/#{tracking_code}"
   end
+
+  def total_hits
+    url_trackings.count
+  end
 end
