@@ -5,5 +5,6 @@ FactoryBot.define do
     url { Faker::Internet.url }
     tracking_code { Faker::Internet.uuid }
     client { FactoryBot.create(:client) }
+    valid_url { true }
   end
 end

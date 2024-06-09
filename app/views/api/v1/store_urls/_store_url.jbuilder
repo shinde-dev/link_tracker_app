@@ -5,6 +5,7 @@ json.extract!(
   :id,
   :url,
   :tracking_url,
-  :total_hits
+  :total_hits,
+  :valid_url
 )
 json.client store_url.client, :name, :email

@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Store Urls', type: :request do
+  before { allow(Api::UrlValidator).to receive(:valid?).and_return(true) }
+
   describe 'POST /create' do
     let(:client) { FactoryBot.create(:client) }
     let!(:valid_attributes) do
@@ -54,6 +56,7 @@ RSpec.describe 'Store Urls', type: :request do
           url: store_url.url,
           tracking_url: store_url.tracking_url,
           total_hits: store_url.total_hits,
+          valid_url: store_url.valid_url,
           client: {
             name: store_url.client.name,
             email: store_url.client.email

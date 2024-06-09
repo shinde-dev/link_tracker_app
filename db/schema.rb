@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_060122) do
     t.string "url", null: false
     t.string "tracking_code"
     t.integer "client_id"
+    t.boolean "valid_url", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_store_urls_on_client_id"

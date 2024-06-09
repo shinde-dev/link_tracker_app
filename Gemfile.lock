@@ -96,6 +96,10 @@ GEM
       railties (>= 5.0.0)
     faker (3.4.1)
       i18n (>= 1.8.11, < 2)
+    faraday (2.9.1)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-net_http (3.1.0)
+      net-http
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -123,6 +127,8 @@ GEM
     minitest (5.23.1)
     msgpack (1.7.2)
     mutex_m (0.2.0)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.12)
       date
       net-protocol
@@ -254,6 +260,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    uri (0.13.0)
     webrick (1.8.1)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -272,6 +279,7 @@ DEPENDENCIES
   bootsnap
   factory_bot_rails
   faker
+  faraday
   jbuilder
   pry (~> 0.14.2)
   puma (>= 5.0)

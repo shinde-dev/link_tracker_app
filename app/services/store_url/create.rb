@@ -7,7 +7,8 @@ class StoreUrl::Create < Base
   end
 
   def call
-    StoreUrl.create(url: url, client_id: client_id, tracking_code: generate_tracking_code)
+    valid_url = Api::UrlValidator.valid?(url)
+    StoreUrl.create(url: url, client_id: client_id, tracking_code: generate_tracking_code, valid_url: valid_url)
   end
 
   private
