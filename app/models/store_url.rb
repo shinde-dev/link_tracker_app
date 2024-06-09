@@ -6,4 +6,8 @@ class StoreUrl < ApplicationRecord
 
   validates :url, presence: true, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
   validates :tracking_code, uniqueness: true
+
+  def tracking_url
+    "#{ENV.fetch('TRACKING_ROOT_URL')}/#{tracking_code}"
+  end
 end
