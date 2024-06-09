@@ -1,24 +1,69 @@
-# README
+# Link Tracker App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Dependencies
+* Ruby version : 3.3.0
+* Rails Version : 7.1.3.4
 
-Things you may want to cover:
+## Setup and start the applicaton
 
-* Ruby version
+### Set Environment Variables
+```
+$ source .env
+```
+### Install Dependencies
+```
+$ gem install bundler && bundle install
+```
 
-* System dependencies
+### Setup database
+```
+$ rails db:create db:migrate
+```
 
-* Configuration
+### Run the server
+```
+$ rails s
+```
 
-* Database creation
+### Run the Test Suit
+```
+$ rspec
+```
 
-* Database initialization
+### Run the rubocop
+```
+$ rubocop
+```
 
-* How to run the test suite
+## Manually Testing APIs
+* Import postman collection added at root directory with file name LinkTrackerApp.postman_collection.json
+* Change postman collection parameters  as per your local DB values
 
-* Services (job queues, cache servers, search engines, etc.)
+## API - CREATE STORE URL
 
-* Deployment instructions
+### Request
+```
+/api/v1/store_urls
 
-* ...
+{
+    "client_id": 1,
+    "url": "https://google.com"
+}
+```
+
+## API - GET STORE URL
+
+### Request
+```
+/api/v1/store_url/:tracking_code
+{
+    "tracking_code": "tracking_code"
+}
+```
+
+
+## Future Enhancements
+- Support for metadata like geo-location, source etc.
+- Link expiration functionality
+- Background Jobs with Sidekiq for tasks like UrlValidator
+- Ratelimiting on redirect url hits or different deployment probably Serverless

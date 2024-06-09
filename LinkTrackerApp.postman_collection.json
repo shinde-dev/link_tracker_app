@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "231f2980-042c-49a6-bab5-f796cc085992",
+		"name": "Link Tracker App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20771620"
+	},
+	"item": [
+		{
+			"name": "CREATE STORE URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"client_id\": 1,\n    \"url\": \"https://google.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/store_urls",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"store_urls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET STORE URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/store_url/:tracking_code",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"store_url",
+						":tracking_code"
+					],
+					"variable": [
+						{
+							"key": "tracking_code",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
