@@ -10,6 +10,15 @@ class Api::V1::StoreUrlsController < Api::V1Controller
     end
   end
 
+  def show
+    @store_url = StoreUrl.find_by(tracking_code: params[:tracking_code])
+    if @store_url
+      render :show, status: :ok
+    else
+      render json: { errors: 'Tracking code not found' }, status: :not_found
+    end
+  end
+
   private
 
   def create_params

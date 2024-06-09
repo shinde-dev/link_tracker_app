@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   namespace :api do
     namespace :v1 do
-      resources :store_urls, :only => %i[create]
+      resources :store_urls, only: :create
+      get '/store_url/:tracking_code' => 'store_urls#show'
     end
   end
 
